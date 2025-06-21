@@ -4,7 +4,7 @@ Hi, my name is **Christian**, and this project is for a personal music recommend
 
 ## Frameworks and Technologies
 - **Programming Languages:** Python
-- **Tools and Platforms:** 
+- **Libraries:** NumPy, pandas, scikit-learn, Matplotlib and Seaborn
 - **:** 
 - **Additional :** 
 
@@ -14,6 +14,7 @@ Hi, my name is **Christian**, and this project is for a personal music recommend
 
 ## Other Information
 - **Initial Spark:** ["Evaluation Metrics for Recommendation Systems – An Overview"](https://towardsdatascience.com/evaluation-metrics-for-recommendation-systems-an-overview-71290690ecba/)
+- **Training Data:** ["Spotify Tracks Dataset"](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset?resource=download)
 
 ## Fun Fact
 - .
