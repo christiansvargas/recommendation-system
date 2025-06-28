@@ -1,9 +1,7 @@
-# ML libraries
-import numpy as np
+# ML/CSV libraries
 import pandas as pd
-import sklearn
-import matplotlib.pyplot as plt
-import seaborn as sns
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.preprocessing import StandardScaler
 import warnings
 warnings.simplefilter("ignore", FutureWarning)
 
@@ -36,7 +34,36 @@ def find_song(title, artist, album):
 
 # Recommends songs based on user input
 def recommend(track_ids):
-    print("Here are 5 songs you may also like:")
+    # Extract numerical features of interest to find similarities with other songs
+    numerics = ["popularity", "danceability", "duration_ms", "explicit", "key", "mode", "time_signature", "energy", "loudness", "speechiness", "acousticness",
+                "instrumentalness", "liveness", "valence", "tempo"]
+    X_numeric = songs[numerics].astype(float)
+
+    # Scale the data to a mean of 0 and a standard deviation of 1
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(X_numeric)
+
+    # Builds the user profile
+    liked = songs[songs.track_id.isin(track_ids)]
+    up_numeric = liked[numerics].astype(float)
+    up_scaled  = scaler.transform(up_numeric)
+    user_profile = up_scaled.mean(axis=0).reshape(1, -1)
+
+    # Compute similarities
+    sims = cosine_similarity(X_scaled, user_profile).ravel()
+
+    # Pick the top 5 similar songs
+    songs["sim"] = sims
+    recs = (songs.loc[~songs.track_id.isin(track_ids)].nlargest(5, "sim"))
+    top_5 = recs[["track_name", "artists", "album_name", "sim"]]
+
+    # Show top 5
+    print("Here are 5 songs you might like:\n")
+    for i, row in top_5.reset_index(drop=True).iterrows():
+        print(f"{i + 1}. {row['track_name']} by {row['artists']} off {row['album_name']}")
+
+    # Delete the similarity score column
+    del songs["sim"]
 
     # Check to continue inputting and recommending
     check = input("\nWould you like to continue entering songs? (y/n): ").strip().lower()
