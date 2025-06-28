@@ -10,6 +10,9 @@ warnings.simplefilter("ignore", FutureWarning)
 # Loads dataset of songs with song IDs, artists, album names, titles, popularity, length, etc.
 songs = pd.read_csv("songs.csv")
 
+# Stores user inputted songs
+track_ids = []
+
 # Finds a song in the dataset
 def find_song(title, artist, album):
     # Normalize all inputs
@@ -33,13 +36,19 @@ def find_song(title, artist, album):
 
 # Recommends songs based on user input
 def recommend(track_ids):
-    return
+    print("Here are 5 songs you may also like:")
 
-# Initial welcome interface
-def welcome():
-    track_ids = [] # Stores user inputted songs
+    # Check to continue inputting and recommending
+    check = input("\nWould you like to continue entering songs? (y/n): ").strip().lower()
+    while check != "y" and check != "n": # Continue prompting if anything else is typed
+        check = input("Error: (y/n): ").strip().lower()
+
+    return (check == "y")
+
+# Main interface
+def main():
     # Repeatedly get user input
-    title = input("Welcome to your music recommender system! You may press 'Enter' once you're done. Please enter the title of a song you like: ")
+    title = input("You may press 'Enter' once you're done. Please enter the title of a song you like: ")
     while title != "":
         artist = input("Please enter the artist for the song: ")
         album = input("Please enter the album that the song is on: ")
@@ -55,8 +64,18 @@ def welcome():
         title = input("\nYou may press 'Enter' once you're done. Please enter the title of a song you like: ")
 
     # Recommend if the user entered at least 1 song
-    if len(track_ids) > 0:
-        recommend(track_ids)
+    if not track_ids:
+        return
+
+    # Continue recommending if needed
+    if recommend(track_ids):
+        main()
+
+# Welcome message
+print("Welcome to your music recommender system!")
 
 # Start interface
-welcome()
+main()
+
+# Closing message
+print("Thanks for using your music recommender system!")
