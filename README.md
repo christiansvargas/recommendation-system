@@ -21,6 +21,7 @@ Hi, my name is **Christian**, and this project is for a personal music recommend
 ## Contact and GitHub
 - **Email:** Christian.S.Vargas4@gmail.com
 - **GitHub:** [github.com/christiansvargas/recommendation-system](https://github.com/christiansvargas/recommendation-system)
+- **LinkedIn:** [linkedin.com/in/christian-s-vargas](https://www.linkedin.com/in/christian-s-vargas)
 
 ## Other Information
 - **Initial Spark:** ["Evaluation Metrics for Recommendation Systems – An Overview"](https://towardsdatascience.com/evaluation-metrics-for-recommendation-systems-an-overview-71290690ecba/)

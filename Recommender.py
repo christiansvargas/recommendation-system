@@ -132,7 +132,8 @@ def main():
         track_id = find_song(title, artist or None, album or None)
         if track_id:
             row = songs.loc[songs.track_id == track_id].iloc[0]
-            print(f"Added: {row['track_name']} by {row['artists']} off {row['album_name']}")
+            artists = row['artists'].replace(";", ", ")
+            print(f"Added: {row['track_name']} by {artists} off {row['album_name']}")
             track_ids.append(track_id)
         else:
             print("Error: song not found")
@@ -148,7 +149,8 @@ def main():
         if not recs.empty:
             print("\nHere are 5 songs you might like:\n")
             for i, r in recs.iterrows():
-                print(f"{i+1}. {r['track_name']} by {r['artists']} off {r['album_name']}")
+                artists = r['artists'].replace(";", ", ")
+                print(f"{i+1}. {r['track_name']} by {artists} off {r['album_name']}")
 
         check = input("\nWould you like to continue entering songs? (y/n): ").strip().lower()
         if check == "y":
@@ -170,7 +172,8 @@ def main():
             track_id = find_song(title, artist or None, album or None)
             if track_id:
                 row = songs.loc[songs.track_id == track_id].iloc[0]
-                print(f"Added: {row['track_name']} by {row['artists']} off {row['album_name']}")
+                artists = row['artists'].replace(";", ", ")
+                print(f"Added: {row['track_name']} by {artists} off {row['album_name']}")
                 track_ids.append(track_id)
             else:
                 print("Error: song not found")
