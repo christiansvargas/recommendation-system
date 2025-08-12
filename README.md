@@ -10,13 +10,13 @@ Hi, my name is **Christian**, and this project is for a personal music recommend
 - **Interface:** Command Line
 
 ## Usage
-- Use **python Recommender.py** to run
-- **Optional:** You may use the script as a library using **from Recommender import find_song, recommend,** for instance.
+- Use **'python Recommender.py'** to run
+- **Optional:** You may use the script as a library using **'from Recommender import find_song, recommend,'** for instance.
 
 ## Troubleshooting
-- "song not found" → Check spelling/diacritics; try without artist/album; lower threshold.
-- "liked songs not found" → Your input tracks weren’t in songs.csv.
-- "recommendations not found" → Increase k, set same_genre=False, or raise popularity_weight a bit.
+- **"song not found"** → Check spelling/diacritics; try without artist/album; lower threshold.
+- **"liked songs not found"** → Your input tracks weren’t in songs.csv.
+- **"recommendations not found"** → Increase k, set same_genre=False, or raise popularity_weight a bit.
 
 ## Contact and GitHub
 - **Email:** Christian.S.Vargas4@gmail.com
