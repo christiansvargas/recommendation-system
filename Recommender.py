@@ -70,7 +70,7 @@ def recommend(track_ids, k=5, same_genre=True, popularity_weight=0.15):
     # Stores songs they like
     liked = songs[songs.track_id.isin(track_ids)]
     if liked.empty:
-        print("No liked tracks found in dataset.")
+        print("Error: liked songs not found")
         return pd.DataFrame()
 
     # Builds the user profile
@@ -112,7 +112,7 @@ def recommend(track_ids, k=5, same_genre=True, popularity_weight=0.15):
 
     recs_df = pd.DataFrame(recs)
     if recs_df.empty:
-        print("No recommendations found.")
+        print("Error: recommendations not found")
 
     return recs_df
 
