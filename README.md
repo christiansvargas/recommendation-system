@@ -4,7 +4,7 @@ Hi, my name is **Christian**, and this project is for a personal music recommend
 
 ## Frameworks and Technologies
 - **Programming Languages:** Python (3.9+)
-- **Libraries:** NumPy, pandas, scikit-learn, Matplotlib and Seaborn
+- **Libraries:** NumPy, pandas and scikit-learn
 - **ML Technique:** Content-based filtering with cosine similarity
 - **Data Prep:** StandardScaler feature scaling (boolean to int for explicit)
 - **Interface:** Command Line
